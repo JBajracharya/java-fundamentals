@@ -37,4 +37,13 @@ public class LibraryTest {
         int output = 5;
         assertEquals("Expected 13", output, Library.average(input));
     }
+
+    @Test
+    public void testLowestAverage() {
+        int[][] input = {{3,4,5,6}, {2, 2, 7, 5, 4, 20}};
+        int output = 4;
+        int actual = Library.lowestAverage(input);
+
+        assertEquals("Expected 4",output, actual);
+    }
 }

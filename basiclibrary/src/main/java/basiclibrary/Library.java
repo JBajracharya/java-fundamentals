@@ -3,6 +3,10 @@
  */
 package basiclibrary;
 
+import javax.lang.model.SourceVersion;
+import java.sql.SQLOutput;
+import java.util.Arrays;
+
 public class Library {
     public boolean someLibraryMethod() {
         return true;
@@ -18,15 +22,14 @@ public class Library {
     }
 
     public static boolean containsDuplicates(int[] numArray) {
-        boolean result = true;
         for (int i = 0; i < numArray.length; i++) {
-            for (int j = 0; j < numArray.length; j++){
-                if(numArray[i] == numArray[j]) {
-                    result = true;
-                } else result = false;
+            for (int j = 0; j < numArray.length; j++) {
+                if (numArray[i] == numArray[j] && i != j) {
+                    return true;
+                }
             }
         }
-        return result;
+        return false;
     }
 
     public static int average (int[] array) {
@@ -38,7 +41,19 @@ public class Library {
     }
 
     public static int lowestAverage(int[][] array) {
-        
+        int[] averageArray = new int[array.length];
+        for ( int i  = 0; i < array.length; i++) {
+            int total = 0;
+            int average = 0;
+
+            for (int j = 0; j < array[i].length; j++){
+                total += array[i][j];
+            }
+            average = total/array[i].length;
+            averageArray[i] = average;
+        }
+        Arrays.sort(averageArray);
+        return averageArray[0];
     }
 
 }
