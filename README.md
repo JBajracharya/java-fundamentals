@@ -13,3 +13,7 @@ labs for Java 401
  *        contains duplicate
  *        calculating average 
  *        arrays of arrays
+ 
+### 2.1    Linter
+####        App.java
+*         missing semicolon
