@@ -9,6 +9,7 @@ public class Main {
         // pluralize
         System.out.println(pluralize("dog", 2));
         System.out.println(pluralize("cat", 1));
+        System.out.println(pluralize("snake", 0));
 
         // flipping coins
         System.out.println(flipNHeads(6));
@@ -23,21 +24,29 @@ public class Main {
         String pluralWord = "";
         if(number > 1) {
             pluralWord = word + "s";
-        } else pluralWord = word;
-
+        }else if (number == 0) {
+            pluralWord = "";
+        } else {
+            pluralWord = word;
+        }
         return pluralWord;
     }
 
     //flipping coin method
     public static String flipNHeads (int flipCount) {
         int flipCounter = 0;
-        int headsCounter = 0;
+        int headsCounter = 1;
         String flipResult = "";
+        String flipSummary = "";
         while (flipCount > flipCounter) {
             double randomNum = Math.random();
-            if (randomNum >= 0.5) {
-                flipResult = "heads";
+            if(randomNum >= 0.5 && flipResult == "heads") {
+                // flipResult = "heads";
                 headsCounter++;
+                System.out.println(flipResult);
+                flipSummary = "It took " + flipCount + " flips " + "to flip " + headsCounter + " head in a row.";
+            }else if (randomNum >= 0.5) {
+                flipResult = "heads";
                 System.out.println(flipResult);
             } else {
                 flipResult = "tails";
@@ -45,7 +54,8 @@ public class Main {
             }
             flipCounter++;
         }
-        return "It took " + flipCount + " flips " + "to flip " + headsCounter + " head in a row.";
+        return flipSummary;
+        
     }
 
     //command line clock
