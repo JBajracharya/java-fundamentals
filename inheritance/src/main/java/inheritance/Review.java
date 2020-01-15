@@ -1,19 +1,20 @@
 package inheritance;
 
-public class Review extends Restaurant {
+public class Review  {
     public String author;
 
-    public Review (String author, float stars, String restaurantName, int priceCategory) {
-        super(restaurantName, stars, priceCategory);
+    public Review (String author) {
         this.author = author;
 
     }
 
     public String toString() {
-        return String.format("%s gave %.1f star rating to %s.", this.author, this.stars, this.restaurantName);
+        return String.format("%s gave star rating ", this.author);
     }
 
     public void addReview() {
 
     }
+
+
 }

@@ -1,6 +1,10 @@
 package inheritance;
 
+import java.util.LinkedList;
+
 public class Restaurant {
+
+    LinkedList<Review> restaurantReviews = new LinkedList<>();
     public String restaurantName;
     public float stars;
     public float priceCategory;
@@ -16,8 +20,10 @@ public class Restaurant {
                 "category", this.restaurantName, this.stars, this.priceCategory);
     }
 
-    public void addReview(Review review) {
+    public void addReview(String author) {
+        Review newReview = new Review(author);
 
+        restaurantReviews.add(newReview);
     }
 
 }
