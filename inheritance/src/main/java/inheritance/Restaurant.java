@@ -1,19 +1,23 @@
 package inheritance;
 
 public class Restaurant {
-    public String name;
-    public int stars;
-    public String priceCategory;
+    public String restaurantName;
+    public float stars;
+    public float priceCategory;
 
-    public Restaurant(String name, int stars, String priceCategory) {
-        this.name = name;
+    public Restaurant(String restaurantName, float stars, int priceCategory) {
+        this.restaurantName = restaurantName;
         this.stars = stars;
         this.priceCategory = priceCategory;
     }
 
-    public String toString(String restaurantName) {
-        return String.format("%s has a rating of %i stars out of 5 and it is %s price" +
-                "category", name, stars, priceCategory);
+    public String toString() {
+        return String.format("%s has a rating of %.1f stars out of 5 and it is %.0f price" +
+                "category", this.restaurantName, this.stars, this.priceCategory);
+    }
+
+    public void addReview(Review review) {
+
     }
 
 }
