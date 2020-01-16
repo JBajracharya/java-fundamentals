@@ -17,3 +17,9 @@ labs for Java 401
 ### 2.1    Linter
 ####        App.java
 *         missing semicolon
+
+### 3. Inheritance
+####        Restaurant.java
+*           connect classes
+*           linked-list to add restaurant reviews
+
