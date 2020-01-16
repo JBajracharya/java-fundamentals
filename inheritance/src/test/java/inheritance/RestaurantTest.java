@@ -5,32 +5,34 @@ import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 
 public class RestaurantTest {
+    Restaurant restaurant = new Restaurant("SteakHouse", 3, 2);
 
     @Test
     public void testConstructor() {
-        Restaurant restaurant = new Restaurant("testRestaurant", 3, 2);
         String actual = restaurant.restaurantName;
-        String expected = "testRestaurant";
+        String expected = "SteakHouse";
         assertEquals(expected, actual);
     }
 
     @Test public void testToString() {
-        Restaurant restaurant = new Restaurant("testRestaurant", 3, 2);
         String actual = restaurant.toString();
-        String expected = "testRestaurant has a rating of 3.0 stars out of 5 and it is 2 priceCategory";
+        String expected = "SteakHouse has a rating of 3.0 stars out of 5 and it is 2 priceCategory";
         assertEquals(expected, actual);
     }
 
     @Test public  void  testAddReview() {
-        Restaurant restaurant = new Restaurant("testRestaurant", 3, 2);
-        restaurant.addReview("Brian");
-        restaurant.addReview("mark");
-        System.out.println("restaurant = " + restaurant);
+        Review review1 = new Review("Food is great", "Johnny", 4.5f);
+        Review review2 = new Review("best restaurant", "Mary", 4.5f);
+        Review review3 = new Review("best restaurant", "Mary", 3f);
 
-        for (Review r : restaurant.restaurantReviews) {
-            System.out.println("r = " + r);
+        restaurant.addReview(review1);
+        restaurant.addReview(review2);
+        restaurant.addReview(review3);
 
-        }
-
+        //test accounts for the stars the restaurant already has and add new ratings
+        //to the restaurant and gets the average of the star ratings
+        String expected =  "SteakHouse has a rating of 3.6 stars out of 5 and it is 2 priceCategory";
+        String actual = restaurant.toString();
+        assertEquals(expected, actual);
     }
 }
