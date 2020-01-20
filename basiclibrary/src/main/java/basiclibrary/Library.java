@@ -3,9 +3,7 @@
  */
 package basiclibrary;
 
-import javax.lang.model.SourceVersion;
-import java.sql.SQLOutput;
-import java.util.Arrays;
+import java.util.*;
 
 public class Library {
     public boolean someLibraryMethod() {
@@ -56,4 +54,50 @@ public class Library {
         return averageArray[0];
     }
 
+    public static String weatherData(int[][] temperature) {
+        int highestTemp = Integer.MIN_VALUE;
+        int lowestTemp = Integer.MAX_VALUE;
+
+        HashSet<Integer> uniqueTemperature = new HashSet<>();
+
+        for (int i = 0; i < temperature.length; i++) {
+            for (int j = 0; j < temperature[i].length; j++) {
+                if(highestTemp < temperature[i][j]) {
+                    highestTemp = temperature[i][j];
+                }
+                if(lowestTemp > temperature[i][j]) {
+                    lowestTemp = temperature[i][j];
+                }
+                uniqueTemperature.add(temperature[i][j]);
+            }
+        }
+        StringBuilder outputData = new StringBuilder();
+        outputData.append("High: " + highestTemp + "\n" + "Low: " + lowestTemp);
+
+        for (int i = lowestTemp; i <= highestTemp; i++) {
+            if(!uniqueTemperature.contains(i)) {
+                outputData.append("\nNever saw temperature: " + i);
+            }
+        }
+        return outputData.toString();
+    }
+
+    public static String tally(List<String> votes) {
+        HashMap<String, Integer> votesPerName = new HashMap();
+        int mostVote = 0;
+        String winner = "";
+        for (String name : votes) {
+            votesPerName.put(name, 0);
+        }
+        for (String vote : votes) {
+            votesPerName.put(vote, votesPerName.get(vote) + 1);
+        }
+        for (String name : votesPerName.keySet()) {
+            if (mostVote < votesPerName.get(name)) {
+                mostVote = votesPerName.get(name);
+                winner = name;
+            }
+        }
+        return winner;
+    }
 }
