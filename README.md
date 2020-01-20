@@ -19,7 +19,15 @@ labs for Java 401
 *         missing semicolon
 
 ### 3. Inheritance
+####        BusinessEntity.java
+*          superclass
 ####        Restaurant.java
-*           connect classes
-*           linked-list to add restaurant reviews
+*          connect classes
+*          linked-list to add restaurant reviews
+####        Shop.java
+####        Theater.java
+####        Review.java
+####        ReviewableEntity.java
+*          interface
+
 
