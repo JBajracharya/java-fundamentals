@@ -4,12 +4,21 @@ public class Review  {
     public String author;
     public String body;
     public float stars;
+    public String movie;
 
-    public Review (String body, String author, float stars) {
-        this.body = body;
+    public Review (String description, String author, float stars) {
+        this.body = description;
         this.author = author;
         this.stars = stars;
 
+    }
+
+    //Constructor overload
+    public Review (String description, String author, float stars, String movie) {
+        this.body = description;
+        this.author = author;
+        this.stars = stars;
+        this.movie = movie;
     }
 
     public String toString() {
